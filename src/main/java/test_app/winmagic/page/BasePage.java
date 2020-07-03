@@ -1,10 +1,8 @@
-package test_app.xueqiu.page;
+package test_app.winmagic.page;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
-import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -14,9 +12,8 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class BasePage {
-    //    AndroidDriver<MobileElement> driver;
     AppiumDriver<MobileElement> driver;
-    //    IOSDriver
+
     WebDriverWait wait;
 
     public BasePage(AppiumDriver<MobileElement> driver) {
@@ -27,9 +24,9 @@ public class BasePage {
     public BasePage() {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         desiredCapabilities.setCapability("platformName", "android");
-        desiredCapabilities.setCapability("deviceName", "127.0.0.1:7555");
-        desiredCapabilities.setCapability("appPackage", "com.xueqiu.android");
-        desiredCapabilities.setCapability("appActivity", ".view.WelcomeActivityAlias");
+        desiredCapabilities.setCapability("deviceName", "5OUB0UWE67");
+        desiredCapabilities.setCapability("appPackage", "com.wingto.winmagic");
+        desiredCapabilities.setCapability("appActivity", ".MainActivity");
         desiredCapabilities.setCapability("noReset", "true");
         desiredCapabilities.setCapability("udid", "");
 //        desiredCapabilities.setCapability("dontStopAppOnReset", "true");

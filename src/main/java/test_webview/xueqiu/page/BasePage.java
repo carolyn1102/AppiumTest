@@ -93,4 +93,36 @@ public class BasePage {
     public void waitElement() {
 
     }
+
+    //webview part
+    public void switchContext(String name){
+        driver.getContextHandles().forEach(context -> {
+            if(context.contains(name)){
+                driver.context(context);
+            }
+        });
+    }
+
+    //webview part
+    public void switchWindowByTitle(String title){
+        int count = 10;
+        boolean isSuccess = false;
+        while (!isSuccess && count-- >0){
+            for(String window: driver.getWindowHandles()){
+                driver.switchTo().window(window);
+                if(driver.getTitle().contains(title)){
+                    isSuccess = true;
+                    break;
+                }
+            }
+            try {
+                TimeUnit.SECONDS.sleep(5);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        }
+        if(!isSuccess) System.out.println("切换窗口失败--->" + title);
+
+    }
 }

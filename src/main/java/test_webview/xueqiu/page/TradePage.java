@@ -7,20 +7,24 @@ import org.openqa.selenium.By;
 public class TradePage extends BasePage {
     public TradePage(AppiumDriver<MobileElement> driver) {
         super(driver);
+        //用来确保交易页面加载成功了
+        switchContext("WEBVIEW_");
+
+        find(By.xpath("//div[h1='A股开户']"));
+        switchWindowByTitle("实盘交易");
     }
 
-    private  final By sendPhone = By.id("phone-number");
-
-    private final By sendCode = By.id("code");
-
     public TradePage openAccountForStockA() {
-        click(byText("A股开户"));
-//        sendKeys(sendPhone,"18688886666");
-//        sendKeys(sendCode,"123456");
-//        click(byText("立即开户"));
-        driver.findElementById("phone-number").sendKeys("18888886666");
-        driver.findElementById("code").sendKeys("123456");
-        click(byText("立即开户"));
+        click(By.xpath("//div[h1='A股开户']"));
+
+        switchWindowByTitle("平安证券 极速开户");
+
+        sendKeys(By.xpath("//input[contains(@placeholder,'手机号')]"), "18688886666");
+
+        sendKeys(By.xpath("//input[contains(@placeholder,'验证')]"), "123456");
+
+        click(By.xpath("//div[h1='立即开户']"));
+
         return this;
     }
 

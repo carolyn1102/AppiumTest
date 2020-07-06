@@ -2,11 +2,10 @@ package test_app.winmagic.page;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
-
-
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class RoomPageTest {
     AppiumDriver<MobileElement> driver;
